@@ -1,0 +1,24 @@
+@model Category
+<div class="row">
+    <div class="col">
+        <h1>Add a Category</h1>
+        <form action="addCategory" method="post">
+            <label asp-for="Name"></label>
+            <input asp-for="Name">
+            <span asp-validation-for="Name"></span>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="col">
+        <h2>Categories</h2>
+        <ul>
+            @{
+            foreach(Category c in ViewBag.AllCategories)
+                {
+                    <li><a href="categories/@c.CategoryId">@c.Name</a></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
